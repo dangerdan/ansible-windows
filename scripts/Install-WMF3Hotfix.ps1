@@ -1,45 +1,4 @@
 #Requires -Version 3.0
-<#PSScriptInfo
-.VERSION 1.0
-.GUID 6cf319d1-8c50-460b-99ee-71b11cf7270d
-.AUTHOR
-    Jordan Borean <jborean93@gmail.com>
-.COPYRIGHT
-    Jordan Borean 2017
-.TAGS
-    PowerShell,Ansible,WinRM,WMF,Hotfix
-.LICENSEURI https://github.com/jborean93/ansible-windows-scripts/blob/master/LICENSE
-.PROJECTURI https://github.com/jborean93/ansible-windows-scripts
-.RELEASENOTES
-    Version 1.0: 2017-09-27
-        Initial script created
-#>
-
-<#
-.DESCRIPTION
-The script will install the WinRM hotfix KB2842230 which fixes the memory
-issues that occur when running over WinRM with WMF 3.0. 
-The script will;
-    1. Detect if running on PS version 3.0 and exit if it is not
-    2. Check if KB2842230 is already installed and exit if it is
-    3. Download the hotfix from Microsoft server's based on the OS version
-    4. Extract the .msu file from the downloaded hotfix
-    5. Install the .msu silently
-    6. Detect if a reboot is required and prompt whether the user wants to restart
-
-Once the install is complete, if the install process returns an exit
-code of 3010, it will ask the user whether to restart the computer now
-or whether it will be done later.
-
-See https://github.com/jborean93/ansible-windows/tree/master/scripts for more
-details.
-.PARAMETER Verbose
-    [switch] - Whether to display Verbose logs on the console
-.EXAMPLE
-    powershell.exe -ExecutionPolicy ByPass -File Install-WMF3Hotfix.ps1
-.EXAMPLE
-    powershell.exe -ExecutionPolicy ByPass -File Install-WMF3Hotfix.ps1 -Verbose
-#>
 
 [CmdletBinding()]
 Param()
